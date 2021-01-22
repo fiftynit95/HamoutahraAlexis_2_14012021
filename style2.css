@@ -7,6 +7,9 @@ nav {
   grid-template-rows: auto 2rem;
   justify-items: center;
   align-items: center;
+  grid-template-areas:
+    "logo inscrire"
+    "hebergements activite";
 }
 
 nav a {
@@ -19,15 +22,15 @@ nav a {
 }
 
 nav a:first-of-type {
-  order: 1;
+  grid-area: logo;
 }
 
 nav a:nth-of-type(2) {
-  order: 3;
+  grid-area: hebergements;
 }
 
 nav a:nth-of-type(3) {
-  order: 4;
+  grid-area: activite;
 }
 nav a:nth-of-type(2):hover,
 nav a:nth-of-type(3):hover {
@@ -39,12 +42,12 @@ nav a:nth-of-type(3) {
 }
 
 nav a:last-of-type {
-  order: 2;
+  grid-area: inscrire;
 }
 
 
 article {
-    width: 300px;
+    width: 400px;
 }
 
 article img {
@@ -66,20 +69,25 @@ section#hebergements, section.populaires {
 
 .populaires article {
     display: grid;
+    /* grid-template-rows: 1fr 1fr 1fr; */
+    grid-template:
+        "image titre"
+        "image texte"
+        "image etoiles";
     grid-template-columns: 30% 70%;
-    grid-template-rows: 1fr 1fr 1fr;
 }
 
 
 
 .populaires img{
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 4;
+    /* grid-column-start: 1; */
+    /* grid-column-end: 2; */
+    /* grid-row-start: 1; */
+    /* grid-row-end: 4; */
     width: 100%;
     height: 100%;
     object-fit: cover;
+    grid-area: image;
 }
 
 aside.stars:before {
@@ -92,6 +100,7 @@ aside.stars::after {
 aside.stars{
     font-family: 'Font Awesome 5 Free';
     font-weight:bold;
+    grid-area: etoiles;
 }
 .fourStars::before{
     content:"\f005\f005\f005\f005";
@@ -104,24 +113,82 @@ aside.stars{
   nav {
     grid-template-columns: 50% auto auto auto;
     grid-template-rows: auto;
+    grid-template-areas:
+      "logo hebergements activite inscrire";
   }
   nav a:first-of-type {
     justify-content: flex-start;
   }
 
-  nav a:nth-of-type(2) {
-    order: 2;
-  }
 
-  nav a:nth-of-type(3) {
-    order: 3;
-  }
-
-  nav a:last-of-type {
-    order: 4;
-  }
   nav a:nth-of-type(2):hover,
   nav a:nth-of-type(3):hover {
     border-top: 1px solid blue;
   }
+}
+
+
+/*_______________________________*/
+
+#filter div::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: bold;
+    background-color: red;
+    width: 2rem;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 50%;
+    margin-right: .5rem;
+}
+
+#filter div {
+  display : flex;
+  border: 1px solid grey;
+  width: fit-content;
+  align-items: center;
+  border-radius: 1rem;
+  padding-right: 1rem;
+}
+
+div.price:before {content: "\f53a";}
+.family::before {
+    content: "\f1ae";
+}
+
+.romantic::before {
+    content: "\f004";
+}
+
+.animal::before {
+    content: "\f6d3";
+}
+
+section#filter {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#filter h2 {
+    width: 100%;
+}
+
+#filter p {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+#filter p::before {
+    content:"\f129";
+    font-family: 'Font Awesome 5 Free';
+    font-weight: bold;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    border: 2px solid red;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    margin-right: .5rem;
 }

@@ -45,81 +45,79 @@ nav a:last-of-type {
   grid-area: inscrire;
 }
 
-
 article {
-    width: 400px;
+  width: 400px;
 }
 
 article img {
-    width: 100%;
+  width: 100%;
 }
-h1 {width: 100%;}
+h1 {
+  width: 100%;
+}
 
 section {
-    width: 95%;
-    margin: auto;
+  width: 95%;
+  margin: auto;
 }
 
-section#hebergements, section.populaires {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    background-color:lightgrey;
+section#hebergements,
+section.populaires {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: #f2f2f2;
 }
 
 .populaires article {
-    display: grid;
-    /* grid-template-rows: 1fr 1fr 1fr; */
-    grid-template:
-        "image titre"
-        "image texte"
-        "image etoiles";
-    grid-template-columns: 30% 70%;
+  display: grid;
+  /* grid-template-rows: 1fr 1fr 1fr; */
+  grid-template:
+    "image titre"
+    "image texte"
+    "image etoiles";
+  grid-template-columns: 30% 70%;
 }
 
-
-
-.populaires img{
-    /* grid-column-start: 1; */
-    /* grid-column-end: 2; */
-    /* grid-row-start: 1; */
-    /* grid-row-end: 4; */
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    grid-area: image;
+.populaires img {
+  /* grid-column-start: 1; */
+  /* grid-column-end: 2; */
+  /* grid-row-start: 1; */
+  /* grid-row-end: 4; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-area: image;
 }
 
 aside.stars:before {
-    color: blue;
+  color: #0165fc;
 }
 aside.stars::after {
-    color: grey;
+  color: grey;
 }
 
-aside.stars{
-    font-family: 'Font Awesome 5 Free';
-    font-weight:bold;
-    grid-area: etoiles;
+aside.stars {
+  font-family: "Font Awesome 5 Free";
+  font-weight: bold;
+  grid-area: etoiles;
 }
-.fourStars::before{
-    content:"\f005\f005\f005\f005";
+.fourStars::before {
+  content: "\f005\f005\f005\f005";
 }
-.fourStars::after{
-    content:"\f005";
+.fourStars::after {
+  content: "\f005";
 }
 
 @media screen AND (min-width: 768px) {
   nav {
     grid-template-columns: 50% auto auto auto;
     grid-template-rows: auto;
-    grid-template-areas:
-      "logo hebergements activite inscrire";
+    grid-template-areas: "logo hebergements activite inscrire";
   }
   nav a:first-of-type {
     justify-content: flex-start;
   }
-
 
   nav a:nth-of-type(2):hover,
   nav a:nth-of-type(3):hover {
@@ -127,24 +125,23 @@ aside.stars{
   }
 }
 
-
 /*_______________________________*/
 
 #filter div::before {
-    font-family: 'Font Awesome 5 Free';
-    font-weight: bold;
-    background-color: red;
-    width: 2rem;
-    height: 2rem;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    border-radius: 50%;
-    margin-right: .5rem;
+  font-family: "Font Awesome 5 Free";
+  font-weight: bold;
+  background-color: #deepff;
+  width: 2rem;
+  height: 2rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 50%;
+  margin-right: 0.5rem;
 }
 
 #filter div {
-  display : flex;
+  display: flex;
   border: 1px solid grey;
   width: fit-content;
   align-items: center;
@@ -152,43 +149,61 @@ aside.stars{
   padding-right: 1rem;
 }
 
-div.price:before {content: "\f53a";}
+div.price:before {
+  content: "\f53a";
+}
 .family::before {
-    content: "\f1ae";
+  content: "\f1ae";
 }
 
 .romantic::before {
-    content: "\f004";
+  content: "\f004";
 }
 
 .animal::before {
-    content: "\f6d3";
+  content: "\f6d3";
 }
 
 section#filter {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #filter h2 {
-    width: 100%;
+  width: 100%;
 }
 
 #filter p {
-    width: 100%;
-    display: flex;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 #filter p::before {
-    content:"\f129";
-    font-family: 'Font Awesome 5 Free';
-    font-weight: bold;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    border: 2px solid red;
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    margin-right: .5rem;
+  content: "\f129";
+  font-family: "Font Awesome 5 Free";
+  font-weight: bold;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  border: 2px solid red;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+button.search-button {
+  background-color: #;
+}
+
+button.search-button {
+  background-color: #0065fc;
+}
+
+aside.populaires {
+  background-color: #f2f2f2;
+}
+
+footer {
+  background-color: #f2f2f2;
 }

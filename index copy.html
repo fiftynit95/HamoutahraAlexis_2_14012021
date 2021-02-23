@@ -44,22 +44,18 @@
           <h2>Trouver votre hébergement pour des vacances de rêves</h2>
           <p>En plein centre ville ou en pleine nature</p>
         </div>
-        <div id="search-bar">
-          <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-        </div>
-        <form method="get" action="search">
-          <input
+        <div class="input-container">
+        <label for="searchInput">
+          <i class="fas fa-map-marker-alt"></i></label>
+          <input 
             type="search"
             placeholder="Destination"
             value="Marseille, France"
+            id="searchInput"
           />
-        </form>
-        <span class="button">
-          <button class="search-button" type="button">Rechercher</button></span
-        >
-      </div>
+          <button class="search-button" type="button"></button>
+      </div> 
     </section>
-    <!--SEARCH SECTION-->
 
     <!--FILTER SECTION-->
     <section id="filter">
@@ -70,7 +66,6 @@
       <div class="animal">Animaux autorisés</div>
       <p>Plus de 500 logements sont disponibles dans cette ville</p>
     </section>
-    <!--FILTER SECTION-->
 
     <main>
       <!--ROOMS SECTION-->
@@ -167,7 +162,7 @@
         </article>
       </aside>
       <!--Activities-->
-      <section>
+      <section id="activites">
         <h1>Acitvités à Marseille</h1>
         <article onclick="">
           <img
@@ -207,23 +202,26 @@
         </article>
       </section>
     </main>
+
+    <!--FOOTER-->
     <footer>
-      <article>
+      <section>
         <h2><strong>A propos</strong></h2>
         <p>Fonctionnement du site</p>
         <p>Conditions générales de vente</p>
         <p>Données et confidentialité</p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h2><strong>Nos hébergements</strong></h2>
         <p>Charte qualité</p>
         <p>Soumettre votre hôtel</p>
-      </article>
-      <article>
+      </section>
+      <section>
         <h2><strong>Assistance</strong></h2>
         <p>Centre d'aide</p>
         <p>Nous contacter</p>
-      </article>
+      </section>
     </footer>
   </body>
 </html>
+

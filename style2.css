@@ -1,24 +1,30 @@
+:root{
+  --shadow : 0 0 10px #797979;
+}
+
 body {
   margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
 }
 nav {
-  display: grid;
+  display              : grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: auto 2rem;
-  justify-items: center;
-  align-items: center;
-  grid-template-areas:
+  grid-template-rows   : auto 2rem;
+  justify-items        : center;
+  align-items          : center;
+  grid-template-areas  : 
     "logo inscrire"
     "hebergements activite";
 }
 
 nav a {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  border-top: 1px solid transparent;
+  display        : flex;
+  width          : 100%;
+  height         : 100%;
+  border-top     : 1px solid transparent;
   justify-content: center;
-  align-items: center;
+  align-items    : center;
 }
 
 nav a:first-of-type {
@@ -46,37 +52,58 @@ nav a:last-of-type {
 }
 
 article {
-  width: 400px;
+  width: 95vw;
+  box-shadow: var(--shadow);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  /* padding-bottom: 20px; */
+  transition: transform 1s;
+  margin: .5rem auto;
+  background: white;
 }
 
 article img {
-  width: 100%;
+  width: calc(100% - 4px);
+  height: 15rem;
+  object-fit: cover;
+  border: 2px solid white;
+  border-radius: 1rem 1rem 0 0;
 }
 h1 {
   width: 100%;
 }
 
 section {
-  width: 95%;
+  width : 95%;
   margin: auto;
 }
 
 section#hebergements,
 section.populaires {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  background-color: #f2f2f2;
+  display         : flex;
+  flex-wrap       : wrap;
+  justify-content: space-around;
+  margin: 10px;
+  order: 1;
 }
+
+
+
+  
+
+section#hebergements {}
 
 .populaires article {
   display: grid;
-  /* grid-template-rows: 1fr 1fr 1fr; */
   grid-template:
     "image titre"
     "image texte"
     "image etoiles";
   grid-template-columns: 30% 70%;
+  grid-column-gap: .5rem;
+  height: 10rem;
+  grid-template-rows: 45% 33% 21%;
 }
 
 .populaires img {
@@ -84,13 +111,13 @@ section.populaires {
   /* grid-column-end: 2; */
   /* grid-row-start: 1; */
   /* grid-row-end: 4; */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width     : 100%;
+  height: calc(10rem - 4px);
+  border-radius: 1rem 0 0 1rem;
   grid-area: image;
 }
 
-aside.stars:before {
+aside.stars::before {
   color: #0165fc;
 }
 aside.stars::after {
@@ -100,7 +127,12 @@ aside.stars::after {
 aside.stars {
   font-family: "Font Awesome 5 Free";
   font-weight: bold;
-  grid-area: etoiles;
+  grid-area  : etoiles;
+  padding-bottom: .5rem;
+}
+
+.fiveStars::before {
+  content: "\f005\f005\f005\f005\f005";
 }
 .fourStars::before {
   content: "\f005\f005\f005\f005";
@@ -108,43 +140,34 @@ aside.stars {
 .fourStars::after {
   content: "\f005";
 }
-
-@media screen AND (min-width: 768px) {
-  nav {
-    grid-template-columns: 50% auto auto auto;
-    grid-template-rows: auto;
-    grid-template-areas: "logo hebergements activite inscrire";
-  }
-  nav a:first-of-type {
-    justify-content: flex-start;
-  }
-
-  nav a:nth-of-type(2):hover,
-  nav a:nth-of-type(3):hover {
-    border-top: 1px solid blue;
-  }
+.threeStars::before {
+  content: "\f005\f005\f005";
+}
+.threeStars::after {
+  content: "\f005\f005";
 }
 
 /*_______________________________*/
 
 #filter div::before {
-  font-family: "Font Awesome 5 Free";
-  font-weight: bold;
-  background-color: #deepff;
-  width: 2rem;
-  height: 2rem;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  border-radius: 50%;
-  margin-right: 0.5rem;
+  font-family     : "Font Awesome 5 Free";
+  font-weight     : bold;
+  background-color: #deebff;
+  width           : 2rem;
+  height          : 2rem;
+  justify-content : center;
+  align-items     : center;
+  display         : flex;
+  border-radius   : 50%;
+  margin-right    : 0.5rem;
+  color           : #0165fc;
 }
 
 #filter div {
-  display: flex;
-  border: 1px solid grey;
-  width: fit-content;
-  align-items: center;
+  display      : flex;
+  border       : 1px solid grey;
+  width        : fit-content;
+  align-items  : center;
   border-radius: 1rem;
   padding-right: 1rem;
 }
@@ -165,7 +188,7 @@ div.price:before {
 }
 
 section#filter {
-  display: flex;
+  display  : flex;
   flex-wrap: wrap;
 }
 
@@ -174,36 +197,165 @@ section#filter {
 }
 
 #filter p {
-  width: 100%;
-  display: flex;
+  width      : 100%;
+  display    : flex;
   align-items: center;
 }
 #filter p::before {
-  content: "\f129";
-  font-family: "Font Awesome 5 Free";
-  font-weight: bold;
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  border: 2px solid red;
-  border-radius: 50%;
+  content        : "\f129";
+  font-family    : "Font Awesome 5 Free";
+  font-weight    : bold;
+  width          : 2rem;
+  height         : 2rem;
+  display        : flex;
+  border         : 2px solid #e8e8e8;
+  border-radius  : 50%;
   justify-content: center;
-  align-items: center;
-  margin-right: 0.5rem;
-}
-
-button.search-button {
-  background-color: #;
+  align-items    : center;
+  margin-right   : 0.5rem;
+  color          : #0165fc;
 }
 
 button.search-button {
   background-color: #0065fc;
+  color           : white;
+  height: 2rem;
+  border: 0;
+  border-radius: .5rem;
 }
 
 aside.populaires {
   background-color: #f2f2f2;
+  order: 0;
 }
 
 footer {
   background-color: #f2f2f2;
+}
+
+
+section#activites {
+    display: grid;
+    order: 2;
+}
+
+i.fas.fa-map-marker-alt {
+    DISPLAY: FLEX;
+    width: 1.5rem;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5rem 0 0 .5rem;
+}
+
+input#searchInput {
+    height: 2rem;
+}
+
+button.search-button::before {content: "\f004";font-family: 'Font Awesome 5 Free';}
+
+@media screen AND (min-width: 768px) {
+  main {
+    width: 100%;
+    padding-top: 15px;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-around;
+}
+  nav {
+    grid-template-columns: 50% auto auto auto;
+    grid-template-rows   : auto;
+    grid-template-areas  : "logo hebergements activite inscrire";
+  }
+  nav a:first-of-type {
+    justify-content: flex-start;
+  }
+
+  nav a:nth-of-type(2):hover,
+  nav a:nth-of-type(3):hover {
+    border-top: 1px solid blue;
+  }
+  img {
+/*     object-fit: cover; */
+  }
+  section#hebergements{
+  background-color: #f2f2f2;
+}
+button.search-button {
+  border-radius: 0 .5rem .5rem 0;
+}
+button.search-button::before {
+  content:"rechercher"!important;
+  font-family: inherit;
+}
+}
+
+@media screen and (min-width: 1024px){
+    section#activites {
+    grid-template-areas:
+    "titre titre titre titre"
+    "i1 i2 i4 i5"
+    "i1 i2 i4 ."
+    "i1 . i4 i6"
+    "i1 i3 i4 i6";
+    grid-template-rows: auto 10rem 3rem 3rem 10rem;
+    grid-template-columns: 24% 24% 24% 24%;
+    grid-column-gap: 1%;
+    }
+
+    section#activites h1{
+      grid-area: titre;
+    }
+    section#activites article:nth-of-type(1){
+        grid-area: i1;
+    }
+    section#activites article:nth-of-type(2){
+        grid-area: i2;
+    }
+    section#activites article:nth-of-type(3){
+        grid-area: i3;
+    }
+    section#activites article:nth-of-type(4){
+        grid-area: i4;
+    }
+    section#activites article:nth-of-type(5){
+        grid-area: i5;
+    }
+    section#activites article:nth-of-type(6){
+        grid-area: i6;
+    }
+    section#activites article {
+    height: 100%;
+}
+
+section#activites img {
+    height: calc(100% - 74px);
+    object-fit: cover;
+}
+section#activites h2 {
+    height: 74px;
+}
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+ 
+}
+
+i.fas.fa-map-marker-alt{
+  background-color:#adadad ;
+}
+
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+
+#activites h2, #hebergements h2, #hebergements p, #hebergements aside {
+    padding-left: .5rem;
 }
